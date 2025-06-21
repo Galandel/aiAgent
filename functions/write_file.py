@@ -11,7 +11,7 @@ def write_file(working_directory, file_path, content):
     
     if not os.path.exists(target_file):
         try:
-            os.makedires(os.path.dirname(target_file), exist_ok=True)
+            os.makedirs(os.path.dirname(target_file), exist_ok=True)
         except OSError as e:
             return f'Error: creating directory "{file_path}": {e}'
     if os.path.exists(target_file) and os.path.isdir(target_file):
@@ -34,7 +34,7 @@ schema_write_file = types.FunctionDeclaration(
                 type=types.Type.STRING,
                 description="Path to the file to write, relative to the working directory.",
             ),
-            "contents": types.Schema(
+            "content": types.Schema(
                 type=types.Type.STRING,
                 description="Content to write to the file.",
             ),
